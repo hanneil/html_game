@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星际突击 · 3D 太空飞船</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hud-left">
+      <div class="hud-score">得分 <span id="score">0</span></div>
+      <div class="hud-level">波次 <span id="level">1</span></div>
+      <div class="hull-wrap">
+        <span class="hull-label">船体</span>
+        <div class="hull-bar"><div id="hull" class="hull-fill"></div></div>
+        <span id="hull-text" class="hull-text">100</span>
+      </div>
+      <div class="hud-power" id="powers"></div>
+    </div>
+    <div class="hud-right">历史最高 <span id="high">0</span></div>
+  </div>
+
+  <div id="crosshair" class="hidden"></div>
+  <div id="hint" class="hidden">点击画面锁定鼠标 · W/S 升降 · A/D 左右 · 空格 / 左键 射击 · Shift 加速 · ESC 返回菜单</div>
+
+  <div id="menu" class="overlay">
+    <div class="panel">
+      <h1>星际突击</h1>
+      <p class="sub">SPACE STRIKE · 3D 太空飞船</p>
+      <ul class="help">
+        <li><b>W / S</b> 上升 / 下降</li>
+        <li><b>A / D</b> 向左 / 向右平移</li>
+        <li>飞船自动向前飞，WASD 只负责躲闪</li>
+        <li><b>鼠标</b> 转向瞄准（点击画面锁定）</li>
+        <li><b>空格 / 左键</b> 射击</li>
+        <li><b>Shift</b> 推进加速</li>
+        <li><b>ESC</b> 返回主菜单（游戏中需按两次）</li>
+        <li>竖线上的亮杠 = 你所在高度，杠钻进敌人体内 = 同高度危险！</li>
+        <li>光球道具：蓝 = 多弹道 · 绿 = 修复 · 金 = 积分加倍</li>
+        <li>中央子弹伤害更高，大陨石需要多次命中</li>
+        <li>摧毁陨石与无人机，小心碰撞！</li>
+      </ul>
+      <button id="start" class="btn">开始游戏</button>
+    </div>
+  </div>
+
+  <div id="gameover" class="overlay hidden">
+    <div class="panel">
+      <h1>飞船损毁</h1>
+      <p class="sub">SHIP DESTROYED</p>
+      <div class="final">本局得分 <span id="final-score">0</span></div>
+      <div class="final small">历史最高 <span id="final-high">0</span></div>
+      <div class="btn-row">
+        <button id="restart" class="btn">再来一局</button>
+        <button id="tomenu" class="btn ghost">返回主菜单</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="no-babylon" class="overlay hidden">
+    <div class="panel">
+      <h1>加载失败</h1>
+      <p>无法加载 Babylon.js，请检查网络（CDN 资源）后刷新页面。</p>
+    </div>
+  </div>
+
+  <script src="lib/babylon.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
